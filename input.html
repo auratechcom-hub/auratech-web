@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>お問い合わせフォーム</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #111111;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .header-image {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      background: url("photo1.png") center center / cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .header-text {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+
+    .header-text p {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    .form-container {
+      width: 480px;
+      margin: 40px auto;
+      padding: 10px 0;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-size: 14px;
+    }
+
+    .required {
+      color: #ff6b6b; /* 優しい赤 */
+      font-size: 12px;
+      margin-left: 5px;
+    }
+    
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border: 1px solid #666;
+      border-radius: 3px;
+      background-color: #222;
+      color: #fff;
+    }
+
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+
+    .submit-button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #b8860b;
+      color: #fff;
+      border: none;
+      border-radius: 3px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .submit-button:hover {
+      background-color: #a07409;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 上部画像 + テキスト -->
+  <div class="header-image">
+    <div class="header-text">
+      <h1>お問い合わせ</h1>
+      <p>以下のフォームに入力して確認ボタンを押してください。</p>
+    </div>
+  </div>
+
+  <!-- フォーム本体 -->
+<body>
+    <h1>お問い合わせフォーム</h1>
+    <form id="contactForm">
+        <div>
+            <label for="name">お名前:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="name">お名前（フリガナ）:</label>
+            <input type="text" id="furigana" name="furigana" required>
+        </div>
+        <div>
+            <label for="name">貴社名:</label>
+            <input type="text" id="company" name="company" required>
+        </div>        
+        <div>
+            <label for="email">メールアドレス:</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+                <div>
+            <label for="email">電話番号:</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <div>
+            <label for="message">お問い合わせ内容:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit">確認画面へ</button>
+    </form>
+
+    <script src="input.js"></script>
+</body>
+
+   
+
+  <script src="input.js"></script>
+
+</body>
+</html>
