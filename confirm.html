@@ -109,6 +109,10 @@
 
   <!-- formspree送信用のフォーム -->
   <form id="finalForm" action="https://formspree.io/f/movnqono" method="POST">
+
+    <!-- 送信後のリダイレクト先 -->
+    <input type="hidden" name="_redirect" value="https://auratechcom-hub.github.io/auratech-web/complete.html">
+    
     <!-- hiddenで値を保持 -->
     <input type="hidden" name="name" id="hiddenName">
     <input type="hidden" name="furigana" id="hiddenFurigana">
@@ -157,3 +161,4 @@
 
 </body>
 </html>
+
