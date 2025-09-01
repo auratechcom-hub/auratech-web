@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>合同会社Auratech</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'sans-serif';
+    }
+
+.site-header {
+  background-color: #111;
+  padding: 10px 20px;
+  position: fixed;   /* ← sticky から fixed に変更 */
+  top: 0;
+  left: 0;
+  width: 100%;       /* 横幅いっぱいに広げる */
+  z-index: 9999;     /* 最前面に配置 */
+}
+
+body {
+  padding-top: 60px; /* ← ヘッダー高さ分の余白を作る（高さに応じて調整） */
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  color: #fff;
+  font-size: 20px;
+  margin: 0;
+}
+
+.nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.nav a:hover {
+  background: #444;
+}
+
+
+
+    /* ---- セクション1：黒背景 ---- */
+    .section-black {
+      background-color: #111;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      flex-wrap: wrap;
+    }
+
+    .section-black .text-section {
+      max-width: 600px;
+      margin-right: 40px;
+    }
+
+    .section-black .text-section {
+      max-width: 600px;
+      margin-right: 40px;
+    }
+
+    .section-black .text-section h1 {
+      font-size: 60px;
+      font-weight: bold;
+    }
+
+    .section-black .text-section h1 span {
+      font-weight: normal;
+    }
+
+    .section-black .text-section h2 {
+      font-size: 40px;
+      margin-top: 20px;
+    }
+
+    .section-black .text-section h3 {
+      font-size: 40px;
+      margin-top: 10px;
+      color: #ffffff;
+    }
+
+    .section-black .text-section p {
+      font-size: 24px;
+      line-height: 1.8;
+      margin-top: 20px;
+      color: #ccc;
+    }
+
+    .section-black .image-section img {
+      max-width: 400px;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    /* ---- セクション2：白背景 ---- */
+.section-white {
+  background-color: #fff;
+  width: 100%;         
+  padding: 60px 40px;  
+  box-sizing: border-box;
+}
+
+.section-white .content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #000;
+}
+
+.section-white .text-block {
+  flex: 1 1 500px;
+  padding-right: 40px;
+}
+
+.section-white .text-block h2 {
+  font-size: 40px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.section-white .text-block p {
+  font-size: 24px;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.section-white .image-block {
+  flex: 1 1 400px;
+  text-align: center;
+}
+
+.section-white .image-block img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+
+    /* ---- セクション3：ラグジュアリーな空間 ---- */
+    .section-dark {
+      background-color: #1D1F22;
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section-dark h2 {
+      font-size: 40px;
+      margin-bottom: 40px;
+    }
+
+/* ラグジュアリー空間のカード */
+.luxury-section {
+  background: #111;
+  color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.luxury-section h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.luxury-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* ← 2×2に固定 */
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.luxury-card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 280px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.luxury-card .overlay {
+  background: rgba(0, 0, 0, 0.55); /* ← これが黒い半透明レイヤー */
+  padding: 20px;
+  width: 100%;
+  text-align: left;
+}
+
+.luxury-card h3 {
+  font-size: 24px;
+  margin: 0 0 10px;
+}
+
+.luxury-card p {
+  font-size: 16px;
+  margin: 0;
+  color: #ddd;
+}
+
+/* スマホ対応：1列に崩す */
+@media (max-width: 768px) {
+  .luxury-grid {
+    grid-template-columns: 1fr;
+  }
+}
+ /* ---- セクション3：ラグジュアリーな空間終わり ---- */
+
+
+/* 導入メリットのセクション開始 */
+
+
+.benefit-card {
+  background: linear-gradient(180deg, #1b1c1f, #17181b);
+  border: 1px solid #2a2b30;
+  padding: 32px;
+  aspect-ratio: 1 / 1;   /* ← 正方形を維持（高さ自動計算） */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* タイトルと本文 */
+.benefit-card h3 {
+  font-size: 24px;
+  margin: 12px 0;
+  font-weight: 700;
+}
+
+.benefit-card p {
+  font-size: 18px;
+  color: #b8b9bf;
+}
+
+/* グリッド（3列） */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* スマホ対応：1列 */
+@media (max-width: 768px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+/* 導入メリットのセクション終了 */
+
+
+
+    /* ---- レスポンシブ ---- */
+    @media (max-width: 768px) {
+      .section-black,
+      .section-white {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .section-black .text-section,
+      .section-white .text-block {
+        margin-right: 0;
+        padding-right: 0;
+        margin-bottom: 30px;
+      }
+
+      .section-black .image-section img,
+      .section-white .image-block img {
+        max-width: 90%;
+      }
+
+      .feature-cards {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    :root{
+      --bg:#0f0f10;
+      --bg-soft:#151517;
+      --card:#1b1c1f;
+      --text:#f5f5f7;
+      --muted:#b8b9bf;
+      --accent:#8fd3ff;
+      --line:#2a2b30;
+      --ok:#5dd39e;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.7;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    .section {
+  padding: 40px 0;
+}
+
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+}
+    a{color:inherit}
+    .wrap{max-width:1100px;margin:auto;padding:64px 20px}
+    h1,h2,h3{margin:0 0 16px}
+    h2{font-size:22px;letter-spacing:.06em}
+    .eyebrow{display:inline-flex;gap:10px;align-items:center;font-size:12px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+    .grid{display:grid;gap:16px}
+    .grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+    @media (max-width:900px){
+      .grid-3{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .grid-3,.grid-2{grid-template-columns:1fr}
+      .wrap{padding:48px 16px}
+    }
+/* cards */
+
+
+.card {
+  background: linear-gradient(180deg, #1b1c1f, #17181b);
+  border: 1px solid var(--line);
+  border-radius: 0;            /* ← 角丸をなくす */
+  padding: 24px;               /* 内側余白を広めに */
+  box-shadow: 0 10px 24px rgba(0,0,0,.2);
+  width: 220px;                /* 正方形っぽい幅 */
+  height: 220px;               /* 高さも同じにして正方形に近づける */
+  display: flex;               /* 中身を中央寄せに */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;          /* テキスト中央揃え */
+}
+
+.card h3 {
+  font-size: 20px;             /* ← 大きく */
+  margin: 0 0 12px;
+  font-weight: 700;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;             /* ← 大きめに */
+}
+
+.icon {
+  width: 32px;                 /* ← アイコンも大きく */
+  height: 32px;
+  display: inline-block;
+  border: 1px solid var(--line);
+  border-radius: 0;            /* ← 角丸をなくす */
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.icon::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 0;            /* ← 内側も角ばった */
+  background: linear-gradient(180deg, #2a2b30, #1c1d22);
+}
+    /* flow steps with arrows */
+    .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    @media (max-width:800px){.steps{grid-template-columns:1fr}}
+    .step{
+      position:relative;background:var(--card);border:1px solid var(--line);
+      padding:16px 18px;border-radius:12px;isolation:isolate;overflow:hidden;
+    }
+    .step::after{
+      /* arrow */
+      content:"";
+      position:absolute;right:-22px;top:50%;translate:0 -50%;
+      width:0;height:0;border-left:22px solid var(--card);
+      border-top:12px solid transparent;border-bottom:12px solid transparent;
+      filter:drop-shadow(-1px 0 0 var(--line));
+    }
+    .step:nth-child(2n)::after{display:none} /* last in each row */
+    @media (max-width:800px){.step::after{display:none}}
+    .step .head{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+    .badge{
+      font-size:11px;color:#0c1a12;background:#0b2b1d;border:1px solid #174;
+      border-radius:999px;padding:2px 8px;letter-spacing:.04em
+    }
+    .step .title{font-weight:700;font-size:14px}
+    .step p{margin:4px 0 0;color:var(--muted);font-size:13px}
+    /* FAQ */
+    .faq{gap:16px}
+    .faq .qa{
+      background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;
+      transition:border-color .2s ease, transform .12s ease;
+    }
+    .faq .qa:hover{border-color:#2e3239;transform:translateY(-1px)}
+    .faq .q{font-weight:700;font-size:14px;margin:0 0 6px}
+    .faq .a{margin:0;color:var(--muted);font-size:13px}
+
+
+    /* Support */
+.support {
+  display: grid;
+  grid-template-columns: 480px 1fr; 
+  gap: 22px;
+  align-items: start;
+}
+@media (max-width:900px){
+  .support{grid-template-columns:1fr}
+}
+
+
+.support .photo {
+  overflow: hidden;
+}
+.support .photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.bullet h4 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+.bullet p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 26px;
+  line-height: 1.6;
+}
+
+.bullets {
+  display: grid;
+  gap: 20px;
+}
+.bullet {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+/* 丸を灰色に変更 */
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  margin-top: 12px;
+  background: #999; 
+}
+
+
+    /* お問い合わせセクション */
+    .contact-section {
+      position: relative;
+      width: 100%;
+      min-height: 400px;
+      background: url("photo1.png") no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 20px;
+      color: #fff;
+      text-align: center;
+    }
+
+    .contact-section::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.6); /* 背景を暗くして文字を読みやすく */
+    }
+
+    .contact-overlay {
+      position: relative;
+      max-width: 900px;
+      z-index: 1;
+    }
+
+    .contact-overlay h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .contact-overlay p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .contact-buttons .btn {
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #000;
+    }
+
+    .btn-primary:hover {
+      background: #ddd;
+    }
+
+    .btn-outline {
+      border: 2px solid #fff;
+      color: #fff;
+    }
+
+    .btn-outline:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    .btn.primary{background:linear-gradient(180deg,#283341,#1c2230);border-color:#2a3442}
+    .btn .tiny{font-size:12px;color:var(--muted)}
+    /* small footer pager dots */
+    .pager{display:flex;gap:6px;margin-top:12px}
+    .pager span{
+      width:6px;height:6px;border-radius:2px;background:#3a3b40;display:inline-block
+    }
+    .pager span.active{background:#8f9aad}
+  </style>
+</head>
+<body>
+<!-- ヘッダー -->
+<header class="site-header">
+  <div class="header-inner">
+    <h1 class="logo">Auratech</h1>
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="company.html">会社情報</a></li>
+        <li><a href="input.html">お問い合わせ</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+
+
+  <!-- セクション1：黒背景 -->
+  <section class="section-black">
+    <div class="text-section">
+      <h1><span>合同会社</span>Auratech</h1>
+      <h2>香る体験を あなたの施設に</h2>
+      <h3>―香水自販機導入サービス―</h3>
+      <p>
+        施設の価値を高める、新しい香りのソリューション。<br>
+        お客様に特別な体験を提供しながら、新たな収益源を創出します。
+      </p>
+    </div>
+    <div class="image-section">
+      <img src="photo2.png" alt="香水自販機">
+    </div>
+  </section>
+
+  <!-- セクション2：白背景 -->
+  <section class="section-white">
+  <div class="content">
+    <div class="text-block">
+      <h2>香水自販機とは？</h2>
+      <p>
+        当社の香水自販機は、従来の飲料自販機とは異なり、ボトルではなく香水が直接噴射されるシステムです。
+        利用者はボタンを押すだけで、厳選された高品質の香りを1〜2プッシュ体験できます。
+      </p>
+      <p>
+        シンプルな操作性と洗練されたデザインで、あらゆる空間に調和します。
+      </p>
+    </div>
+    <div class="image-block">
+      <img src="photo3.png" alt="香水自販機の画像">
+    </div>
+  </div>
+  </section>
+
+  <!-- セクション3：ラグジュアリー空間 -->
+  <section class="luxury-section">
+  <h2>ラグジュアリーな空間を演出</h2>
+  <div class="luxury-grid">
+    <div class="luxury-card" style="background-image: url('hotel.png');">
+      <div class="overlay">
+        <h3>ホテルロビー</h3>
+        <p>チェックイン時やお出かけ前のゲストに特別な体験を。高級感のある香りで、滞在の思い出に彩りを添えます。</p>
+      </div>
+    </div>
+    <div class="luxury-card" style="background-image: url('bar.png');">
+      <div class="overlay">
+        <h3>クラブ・バー</h3>
+        <p>夜のお出かけ前の必須アイテム。香りで自信を与え、お客様の満足度を高めます。</p>
+      </div>
+    </div>
+    <div class="luxury-card" style="background-image: url('mart.png');">
+      <div class="overlay">
+        <h3>商業施設</h3>
+        <p>ショッピングの合間に手軽に香りをリフレッシュ。機器の認知度が上がれば施設内の導線も描きやすくなります。</p>
+      </div>
+    </div>
+    <div class="luxury-card" style="background-image: url('airport.png');">
+      <div class="overlay">
+        <h3>空港</h3>
+        <p>日本独自の香りを設置。外国人観光客が自国に帰る前にふることで、最後まで心地よい旅行を提供できます。</p>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- 導入メリット -->
+  <section class="wrap section" id="benefits">
+    <h2>導入メリット</h2>
+    <div class="grid grid-3" style="margin-top:14px">
+      <div class="benefit-card">
+        <h3>新規来店の向上</h3>
+        <p>話題性の高い体験を提供することで、SNS 経由の集客と認知拡大を狙えます。</p>
+      </div>
+      <div class="benefit-card">
+        <h3>運用の省力化</h3>
+        <p>自動化された販売フローにより、スタッフの手間を最小化。安定した売上を支援します。</p>
+      </div>
+      <div class="benefit-card">
+        <h3>設置の柔軟性</h3>
+        <p>電源さえあれば小スペースで設置可能。イベント・商業施設・ホテルなど幅広く対応。</p>
+      </div>
+    </div>
+  </section>
+
+  
+  <div class="section-divider"></div>
+
+  <!-- 導入までの流れ -->
+  <section class="wrap section" id="flow">
+    <h2>導入までの流れ</h2>
+    <div class="steps" style="margin-top:14px">
+      <div class="step">
+        <div class="head">
+          <span class="badge">STEP 1</span>
+          <div class="title">お問い合わせ</div>
+        </div>
+        <p>運用イメージ・ご希望場所をヒアリング。最適な設置プランと概算費用をご提案します。</p>
+      </div>
+      <div class="step">
+        <div class="head">
+          <span class="badge">STEP 2</span>
+          <div class="title">現地調査</div>
+        </div>
+        <p>電源・導線・安全面を確認。必要に応じてレイアウトや演出のご提案も行います。</p>
+      </div>
+      <div class="step">
+        <div class="head">
+          <span class="badge">STEP 3</span>
+          <div class="title">契約・準備</div>
+        </div>
+        <p>スケジュール確定後、機器手配・香り選定・告知素材の準備を進めます。</p>
+      </div>
+      <div class="step">
+        <div class="head">
+          <span class="badge">STEP 4</span>
+          <div class="title">設置・運用開始</div>
+        </div>
+        <p>設置当日に動作確認。初期運用をサポートし、効果測定と改善提案まで伴走します。</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- よくある質問 -->
+  <section class="wrap section" id="faq">
+    <h2>よくある質問</h2>
+    <div class="grid grid-3 faq" style="margin-top:14px">
+      <div class="qa">
+        <p class="q">費用の目安はどれくらいですか？</p>
+        <p class="a">設置条件によります。月額/成果報酬/買取など複数プランをご用意。ご状況に合わせて最適化します。</p>
+      </div>
+      <div class="qa">
+        <p class="q">設置には広いスペースが必要ですか？</p>
+        <p class="a">およそ幅60cm×奥行き50cm程度から設置可能。電源1口をご用意ください。</p>
+      </div>
+      <div class="qa">
+        <p class="q">補充や保守はどうなりますか？</p>
+        <p class="a">当社またはパートナーが定期巡回。消耗品補充・清掃・稼働監視を実施します。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 安心の保証とサポート -->
+  <section class="wrap section" id="support">
+  <h2>安心の保証とサポート</h2>
+  <div class="support" style="margin-top:16px">
+    <div class="photo">
+      <img src="photo4.png" alt="サポートイメージ">
+    </div>
+    <div class="bullets">
+      <div class="bullet">
+        <span class="dot"></span>
+        <div>
+          <h4>サポート体制</h4>
+          <p>トラブル時は専用窓口が一次切り分けと復旧支援。稼働レポートの提供にも対応します。</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <span class="dot"></span>
+        <div>
+          <h4>保証・保守</h4>
+          <p>初期不良は無償交換。保守契約で定期点検・消耗品交換・ソフト更新まで包括対応。</p>
+        </div>
+      </div>
+      <div class="bullet">
+        <span class="dot"></span>
+        <div>
+          <h4>運用ノウハウ共有</h4>
+          <p>設置場所に合わせた香り選定・集客導線・販促素材のテンプレをご提供します。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+
+ <!-- お問い合わせセクション -->
+  <section class="contact-section">
+  <div class="contact-overlay">
+    <h2>お問い合わせ</h2>
+    <p>
+      香水自販機の導入についてのご質問や、お見積りのご依頼は下記フォームよりお気軽にお問い合わせください。<br>
+      担当者より24時間以内にご連絡いたします。
+    </p>
+    <div class="contact-buttons">
+      <a href="input.html" class="btn btn-primary">今すぐお問い合わせ</a>
+      <a href="document.pdf" class="btn btn-outline">資料をダウンロード</a>
+    </div>
+  </div>
+  </section>
+
+
+  <footer class="wrap section" style="color:var(--muted)">
+    <small>&copy; 2025 Auratech Company</small>
+  </footer>
+
+
+</body>
+</html>
