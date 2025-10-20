@@ -5,14 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>お問い合わせフォーム</title>
   <style>
-    body {
-      font-family: sans-serif;
-      background-color: #111111;
-      color: #fff;
-      margin: 0;
-      padding: 0;
+    :root {
+      --bg: #0f0f10;
+      --text: #f5f5f7;
+      --accent: #8fd3ff;
+      --line: #2a2b30;
     }
 
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans JP", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+    }
+
+    /* ===== ヘッダー画像 ===== */
     .header-image {
       position: relative;
       width: 100%;
@@ -40,6 +49,7 @@
       font-size: 16px;
     }
 
+    /* ===== フォーム本体 ===== */
     .form-container {
       width: 480px;
       margin: 40px auto;
@@ -49,27 +59,27 @@
     label {
       display: block;
       margin-top: 15px;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .required {
-      color: #ff6b6b; /* 優しい赤 */
+      color: #ff6b6b;
       font-size: 12px;
       margin-left: 5px;
     }
-    
 
     input[type="text"],
     input[type="email"],
     textarea {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       margin-top: 5px;
       box-sizing: border-box;
-      border: 1px solid #666;
-      border-radius: 3px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
       background-color: #222;
-      color: #fff;
+      color: var(--text);
+      font-size: 15px;
     }
 
     textarea {
@@ -77,19 +87,40 @@
       resize: vertical;
     }
 
-    .submit-button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #b8860b;
-      color: #fff;
-      border: none;
-      border-radius: 3px;
-      font-size: 14px;
-      cursor: pointer;
+    /* ===== ボタン（共通） ===== */
+    .form-buttons {
+      text-align: center;
+      margin-top: 30px;
     }
 
-    .submit-button:hover {
-      background-color: #a07409;
+    .form-buttons button {
+      display: inline-block;
+      padding: 12px 28px;
+      background-color: transparent;
+      border: 1px solid var(--accent);
+      color: var(--text);
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      margin: 0 10px;
+    }
+
+    .form-buttons button:hover {
+      background-color: var(--accent);
+      color: #000;
+    }
+
+    /* ===== スマホ対応 ===== */
+    @media (max-width: 768px) {
+      .form-container {
+        width: 90%;
+      }
+      .form-buttons button {
+        width: 100%;
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -104,46 +135,42 @@
   </div>
 
   <!-- フォーム本体 -->
-<body>
+  <div class="form-container">
     <h1>お問い合わせフォーム</h1>
     <form id="contactForm">
-        <div>
-            <label for="name">お名前:</label>
-            <input type="text" id="name" name="name" required>
-        </div>
-        <div>
-            <label for="name">お名前（フリガナ）:</label>
-            <input type="text" id="furigana" name="furigana" required>
-        </div>
-        <div>
-            <label for="name">貴社名:</label>
-            <input type="text" id="company" name="company" required>
-        </div>        
-        <div>
-            <label for="email">メールアドレス:</label>
-            <input type="email" id="email" name="email" required>
-        </div>
-                <div>
-            <label for="email">電話番号:</label>
-            <input type="text" id="phone" name="phone" required>
-        </div>
-        <div>
-            <label for="message">お問い合わせ内容:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-        </div>
+      <div>
+        <label for="name">お名前:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+      <div>
+        <label for="furigana">お名前（フリガナ）:</label>
+        <input type="text" id="furigana" name="furigana" required>
+      </div>
+      <div>
+        <label for="company">貴社名:</label>
+        <input type="text" id="company" name="company" required>
+      </div>
+      <div>
+        <label for="email">メールアドレス:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+      <div>
+        <label for="phone">電話番号:</label>
+        <input type="text" id="phone" name="phone" required>
+      </div>
+      <div>
+        <label for="message">お問い合わせ内容:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+
+      <!-- ボタン -->
+      <div class="form-buttons">
         <button type="submit">確認画面へ</button>
-        <button type="button" class="back-button" onclick="history.back()">戻る</button>
+        <button type="button" onclick="history.back()">戻る</button>
+      </div>
     </form>
-
-    <script src="input.js"></script>
-</body>
-
-   
+  </div>
 
   <script src="input.js"></script>
-
 </body>
 </html>
-
-
-
