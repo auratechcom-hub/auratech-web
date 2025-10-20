@@ -59,16 +59,25 @@ body {
 .nav a:hover {
   background: #444;
 }
- /* スマホ版 */
+
+
+/* スマホ版 */
 @media (max-width: 768px) {
   .site-header nav a {
-    font-size: 0.8em;    
-    margin-left: 6px;    
+    /* 文字サイズをさらに小さく調整 */
+    font-size: 0.6em;    
+    margin-left: 2px;    /* 左右の余白をさらに詰める */
+    padding: 3px 4px;    /* リンクのクリックエリアを最小限に */
   }
 
   .site-header nav {
-    margin-right: 6px;    
+    margin-right: 2px;    /* 右側の余白を詰める */
     white-space: nowrap;  
+  }
+  
+  /* 追加：ul要素のリンク間のギャップをさらに詰める */
+  .nav ul {
+    gap: 10px; /* デフォルトの 20px から 10px に縮小 */
   }
 }
 
@@ -763,9 +772,9 @@ body {
     <h1 class="logo">Auratech</h1>
     <nav class="nav">
       <ul>
-        <li><a href="index.html">ホーム</a></li>
         <li><a href="company.html">会社情報</a></li>
         <li><a href="input.html">お問い合わせ</a></li>
+        <li><a href="privacy.html">プライバシー・ポリシー</a></li>
       </ul>
     </nav>
   </div>
